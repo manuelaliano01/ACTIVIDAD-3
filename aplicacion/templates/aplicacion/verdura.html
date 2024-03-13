@@ -1,0 +1,47 @@
+{% extends 'aplicacion/index.html' %}
+
+{% block Titulo %}
+<h1 class="display-4 fw-bolder">Verduras</h1>
+<p class="lead fw-normal text-white-50 mb-0">Consulte nuestro catálogo de verduras</p>
+</div>
+</div>
+</header>
+{% endblock Titulo %}
+
+{% block Contenido %}
+
+<table>
+    <tr>
+        <td width="200"><h2>VERDURAS</h2></td>
+        <td>
+            <a
+            href="{% url 'verdura_form' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa-regular fa-pen-to-square"></i>
+            </a>
+        </td>        
+    </tr>
+</table>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Unidad</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for producto in productos_verdura %}
+        <tr>
+            
+            <td>{{ producto.nombre }}</td>
+            <td>$ {{producto.precio }}</td>
+            <td>{{ producto.unidad }} KG </td>
+        </tr>
+        {% endfor %}
+        {% endblock Contenido %}
+        {% block Copyright %}
+        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+        </div>
+        {% endblock Copyright %}
